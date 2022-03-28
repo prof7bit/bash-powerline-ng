@@ -2,6 +2,10 @@
 
 __powerline() {
 
+    # if there is no interactive terminal we don't need a fancy prompt, 
+    # avoids tput errors during scp, cron, etc.
+    tty -s || return
+
     # Unicode symbols
     readonly PS_SYMBOL_DARWIN=''
     readonly PS_SYMBOL_LINUX='\$'
